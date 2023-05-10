@@ -1,3 +1,7 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+if __name__ == '__main__':
 import sys
 
 # Название начального пункта маршрута
@@ -46,54 +50,54 @@ while True:
                 "№",
                 "Начало маршрута",
                 "Конец маршрута",
-                "№ Маршрута"
-            )
-        )
-        print(line)
-
-        for idx, spisok_new in enumerate(list_route, 1):
-            # print(spisok_new)
-            print(
-                ' | {: ^ 4} | {: ^ 15} | {: ^ 30 | {: ^ 20} | '.format(
-                    idx,
-                    spisok_new.get('name_start', ''),
-                    spisok_new.get('name_finish', ''),
-                    spisok_new.get('name_route', 0)
-
+                    "№ Маршрута"
                 )
             )
+            print(line)
 
-        print(line)
+            for idx, spisok_new in enumerate(list_route, 1):
+                # print(spisok_new)
+                print(
+                    ' | {: ^ 4} | {: ^ 15} | {: ^ 30 | {: ^ 20} | '.format(
+                        idx,
+                        spisok_new.get('name_start', ''),
+                        spisok_new.get('name_finish', ''),
+                        spisok_new.get('name_route', 0)
 
-    elif command == 'route':
-        route_sear = input('Введите пункт маршрута: ')
-        search_route = []
-        for route_sear_item in list_route:
-            if route_sear == route_sear_item('name_start'):
-                search_sear.append(route_sear_item)
-            if route_sear == route_sear_item('name_finish'):
-                search_route.append(route_sear_item)
-
-        if len(search_route) > 0:
-            line_new = '+-{}-+-{}-+-{}-+-{}-+'.format(
-                '-' * 4,
-                '-' *15,
-                '-' *30,
-                '-' *20
-            )
-            print(line_new)
-
-            print(
-                ' | {: ^ 4} | {: ^ 15} | {: ^ 30 | {: ^ 20} | '.format(
-                    idx_new,
-                    spisok_new.get('name_start', ''),
-                    spisok_new.get('name_finish', ''),
-                    spisok_new.get('name_route', 0)
+                    )
                 )
-            )
-            print(line_new)
-        else:
-            print('Таких маршрутов не найдено', file=sys.stderr)
+
+            print(line)
+
+        elif command == 'route':
+            route_sear = input('Введите пункт маршрута: ')
+            search_route = []
+            for route_sear_item in list_route:
+                if route_sear == route_sear_item('name_start'):
+                    search_sear.append(route_sear_item)
+                if route_sear == route_sear_item('name_finish'):
+                    search_route.append(route_sear_item)
+
+            if len(search_route) > 0:
+                line_new = '+-{}-+-{}-+-{}-+-{}-+'.format(
+                    '-' * 4,
+                    '-' *15,
+                    '-' *30,
+                    '-' *20
+                )
+                print(line_new)
+
+                print(
+                    ' | {: ^ 4} | {: ^ 15} | {: ^ 30 | {: ^ 20} | '.format(
+                        idx_new,
+                        spisok_new.get('name_start', ''),
+                        spisok_new.get('name_finish', ''),
+                        spisok_new.get('name_route', 0)
+                    )
+                )
+                print(line_new)
+            else:
+                print('Таких маршрутов не найдено', file=sys.stderr)
 
     elif command == 'help':
         print('Список команд: \n')
